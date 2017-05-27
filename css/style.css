@@ -1,5 +1,4 @@
 
-
 #cabecera{
 	color: white;
 	text-align: center;
@@ -12,8 +11,8 @@
 	border-color: #ffffff;
 	width: 600px;
 	display: block;
-	font-family: "Raleway";
-	font-weight: bolder;
+	font-family: "Archivo Black";
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 table#proyectos{
@@ -23,8 +22,9 @@ table#proyectos{
 	background-color: white;
 	text-align: center;
 	font-size: 15px;
-	font-family: "Raleway";
-	font-weight: bolder;
+	font-family: "Archivo Black";
 
 }
+
+
 
