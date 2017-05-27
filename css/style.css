@@ -1,0 +1,25 @@
+
+#cabecera{
+	color: white;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 80px;
+	margin-bottom: 30px;
+	border-width: : 1pt;
+	border-style: solid;
+	border-color: #ffffff;
+	width: 600px;
+	display: block;
+}
+
+table#proyectos{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	text-align: center;
+	font-family: "Raleway";
+	font-size: 15px;
+	font-weight: bolder;
+}
