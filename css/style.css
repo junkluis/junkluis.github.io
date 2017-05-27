@@ -1,8 +1,4 @@
 
-*{
-	font-family: "Raleway";
-	font-weight: bolder;
-}
 
 #cabecera{
 	color: white;
@@ -16,6 +12,8 @@
 	border-color: #ffffff;
 	width: 600px;
 	display: block;
+	font-family: "Raleway";
+	font-weight: bolder;
 }
 
 table#proyectos{
