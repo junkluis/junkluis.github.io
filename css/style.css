@@ -1,4 +1,9 @@
 
+*{
+	font-family: "Raleway";
+	font-weight: bolder;
+}
+
 #cabecera{
 	color: white;
 	text-align: center;
@@ -23,3 +28,4 @@ table#proyectos{
 	font-size: 15px;
 	font-weight: bolder;
 }
+
