@@ -27,6 +27,11 @@ table#proyectos{
 
 }
 
+table#proyectos td{
+	border-bottom: 1px solid #ddd;
+	border-width: 90%;
+}
+
 img{
 	margin: 15px;
 }
