@@ -19,11 +19,16 @@ table#proyectos{
 	width: 500px;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: white;
+	background-color: #f4f4f4;
 	text-align: center;
 	font-size: 15px;
 	font-family: "Archivo Black";
+	border-radius: 10px;
 
+}
+
+img{
+	margin: 15px;
 }
 
 

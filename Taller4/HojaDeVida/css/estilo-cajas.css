@@ -1,0 +1,83 @@
+
+*{
+	font-family: "Arial";
+}
+
+h1{
+	text-align: center;
+}
+
+div#caja-datosPersonales > h2{
+	text-align: center;
+	margin: 5px;
+}
+
+h2, h4{
+	margin: 5px;
+}
+
+div[id|=caja]{
+	border-width: : 1pt;
+	border-style: solid;
+	border-color: #cbccc1;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 50%;
+	padding: 5px;
+}
+
+div#caja-principal img {
+	display: block;
+	float: left;
+	padding-right: 10px;
+	vertical-align: middle;
+}
+
+div p {
+	line-height: 25px;
+	margin: 0px;
+	margin-left: 25px;
+}
+
+div.institucion{
+	position: relative;
+	height: 160px;
+}
+
+div.institucion  div{
+	position: absolute;
+	top: 0px;
+	left: 100px;
+}
+
+time{
+	font-style: italic;
+}
+
+div#caja-habilidadesTecnicas{
+	height: 100px;
+}
+
+div#habilidad{
+	width: 100px;
+	border-radius: 70px;
+	margin: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 120px;
+	background: #cecece;
+	font-weight: bold;
+	box-shadow: 2px 2px 7px grey;
+	float: left;
+	display: block;
+}
+
+div#habilidad span{ 
+	color: white;
+	border-radius: 70px;
+	background: #241872;
+	padding: 10px;
+}
