@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+}
+
+/*Box Model*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+/*Flotantes*/
+[class*="col-"] {
+    float: left;
+}
+
+
+/* MEDIA QUERY */
+/* [321,480]*/
+@media only screen 
+and (max-width : 480px){
+	[class*="col-"] {
+	}
+
+	body{
+		width: 100%;
+		margin:0px;
+	}
+
+	#titulo-sitio{
+		font-size: 150%;
+		text-shadow: none;
+		text-align: center;
+	}
+
+	div#hermano ~ div{
+		height: 60px;
+		width: 100%;
+		margin:2px;
+	}
+
+	p#Titulo-de-receta{
+		margin: 5px;
+		padding: 5px 10px 3px;
+		font-size: 125%;
+		border-bottom: none;
+
+	}
+
+	p#Categoria{
+		text-align: right;
+		margin: 0px 0px;
+		text-shadow: 2px 2px 4px white;
+	}
+
+	p#Descripcion{
+		display: none;
+	}
+
+	div#r-detallada{
+		margin: 5px 0px 0px;
+		padding: 0px;
+		border-radius: 10px;
+		width: 49%;
+		position: relative;
+	}
+
+	div#receta p:first-child{
+		/*position: relative;*/
+		display: block;
+		position: absolute;
+		top:0px;
+		left: 5px;
+		font-size: 80%;
+		width: 50%;
+		color: white;
+		text-shadow: 2px 2px 4px black;
+	}
+
+	div#receta p{
+		display: none;
+	}
+
+	#comida-img{
+		width: 150px;
+	}
+
+	audio{
+		width: 150px;
+	}
+
+	div#receta{
+		display: inline-block;
+		padding-left:0px;
+		width: 100%;
+	}
+
+
+
+
+}

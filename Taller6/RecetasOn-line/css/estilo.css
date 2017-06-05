@@ -86,6 +86,7 @@ div#r-detallada{
 	padding: 10px;
 	border-radius: 10px;
 	background-color: rgba(255,255,255,0.8);
+	display: inline-block;
 	border-bottom: 1px dotted #e0d2b1;
 }
 
