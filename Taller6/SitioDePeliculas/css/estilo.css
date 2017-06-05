@@ -32,6 +32,7 @@ div#sinopsis p{
 	text-align: justify;
 }
 
+
 ul li[famoso="principal"]{
 	font-weight: bold;
 }
@@ -52,7 +53,7 @@ div#pelicula{
 	border-color: #d7d8cb;
 	border-style: dotted;
 	border-width: 1px;
-	height: 350px;
+	height: 375px;
 	margin-bottom: 10px;
 	margin-top: 10px;
 	padding-left: 10px;
