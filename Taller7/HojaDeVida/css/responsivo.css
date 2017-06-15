@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+@media only screen and (max-width : 480px) {
+	[class*="col-"] {
+		float: left;
+		width: 100% !important;
+	}
+
+	header h1{
+		display: none;
+	}
+
+	div[id|=caja]{
+		border-radius: 20px;
+		background-color: #d4e3fc;
+		margin-top: 4px;
+		margin: 4px;
+	}
+
+	#nombre-foto{
+		position: relative;
+		height: 90px;
+	}
+
+	div#nombre-foto img{
+		position: absolute;
+		left: 30%;
+		top: -60%;
+		width: 40%;
+		z-index: 1;
+		border: 2px solid;
+		border-radius: 10px;
+		padding: 0px !important;
+		margin: 0px;
+	}
+
+	div#nombre-foto h2{
+		position: absolute;
+		font-size: 70%;
+		width: 32%;
+		left: 32%;
+		bottom: 20%;
+		z-index: 2;
+		border: 1px solid;
+		border-radius: 5px;
+		background-color: rgba(225,225,225,0.7);
+		padding: 5px;
+	}
+
+	div#caja-principal p{
+		text-align: center;
+		margin: 5% 0% 0% !important;
+	}
+
+	div#caja-principal p span{
+		display: none;
+	}
+
+	div#caja-principal{
+		margin: 15% 0% 4px;
+
+	}
+
+	#caja-datosPersonales h2{
+		display: none;
+	}
+
+	#caja-datosPersonales p{
+		line-height: 20px;
+	}
+
+	#caja-educacion{
+		padding: 10px;
+	}
+
+	#caja-educacion h2{
+		text-align: center;
+	}
+
+	#caja-educacion hr{
+		display: none;
+	}
+
+	#caja-educacion div.institucion{
+		width: 40%;
+		display: inline-block;
+		margin: 4%;
+	}
+
+	#caja-educacion div.institucion img{
+		display: block;
+		position: static;
+		width: 100%;
+	}
+
+	#caja-educacion div.institucion div{
+		display: block;
+		position: static;
+		
+	}
+
+	#caja-educacion div.institucion div h4{
+		text-align: center;
+		font-size: 80%;
+	}
+
+	#caja-educacion div.institucion div p{
+		font-size: 75%;
+		line-height: 16px;
+		display: inline;
+		margin: 0px;
+	}
+
+	div.institucion div p:after{
+		content:", ";
+	}
+
+	div.institucion div p br{
+		display: none;
+	}
+
+	[id|=nr]{
+		display: none;
+	}
+
+	#caja-habilidadesTecnicas h2{
+		display: none;
+	}
+
+	#caja-habilidadesTecnicas{
+		height: 125px !important;
+	}
+
+}
