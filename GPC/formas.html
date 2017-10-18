@@ -1,0 +1,118 @@
+﻿<html>
+	<head>
+		<title>Formas</title>
+		<style>
+			body { 
+				margin: 0; 
+			}
+			canvas { 
+				width: 100%; 
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="position: fixed; bottom: 0; right: 0; width: 350px; border: 3px solid blue; background-color: rgba(255,255,255,0.5); font-family: arial; margin:10px; padding: 10px">
+			<h3>Proyecto de Graficos por computadora</h3>
+			<h1>Menu</h1>
+			PIRAMIDE <button style="margin: 5px" onclick="cambiarColor('piramide')" type="button">color aleatorio</button><br/>
+			CUBO <button style="margin: 5px" onclick="cambiarColor('cubo')" type="button">color aleatorio</button><br/>
+			ESFERA <button style="margin: 5px" onclick="cambiarColor('esfera')" type="button">color aleatorio</button>
+		</div>
+		<script src="js/three.js"></script>
+		<script src="js/OrbitControls.js"></script>
+		<script>
+			//CREACIÓN DE LA ESCENA Y LA CÁMARA
+			var escena = new THREE.Scene();
+			var camara = new THREE.PerspectiveCamera(90, window.innerWidth/window.innerHeight, 0.1, 1000);
+			camara.position.set(0, 6, 3);
+
+			//VISTA DE LA CÁMARA POR DEFAULT
+			camara.lookAt(new THREE.Vector3(0, 2, 0));
+
+			//RENDER QUE PERMITE QUE SE PRESENTEN SOMBRAS
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.shadowMap.enabled = true;
+			renderer.shadowMap.type = THREE.BasicShadowMap;
+			document.body.appendChild(renderer.domElement);
+
+			//CONTROL CON EL MOUSE
+			control = new THREE.OrbitControls(camara, renderer.domElement);
+
+			//CREACIÓN Y POSICIONAMIENTO DEL PISO
+			var geometria = new THREE.PlaneGeometry(200, 200, 200, 200);
+			var material = new THREE.MeshPhongMaterial({color:0xffffff});
+			var piso = new THREE.Mesh(geometria, material);
+			piso.receiveShadow = true;
+			piso.rotation.x -= 90;
+			escena.add(piso);
+
+			//CREACIÓN DE CUBO QUE PROYECTA SOMBRA
+			var geometria = new THREE.BoxGeometry(1, 1, 1);
+			var material = new THREE.MeshPhongMaterial({color:'red'});
+			var cubo = new THREE.Mesh(geometria, material);
+			cubo.position.set(0, 1, 0);
+			cubo.receiveShadow = true;
+			cubo.castShadow = true;
+			escena.add(cubo);
+
+			//CREACIÓN DE ESFERA QUE PROYECTA SOMBRA
+			var geometria = new THREE.SphereGeometry(1, 40, 40);
+			var material = new THREE.MeshPhongMaterial({color:'blue'});
+			var esfera = new THREE.Mesh(geometria, material);
+			esfera.position.set(3, 3, -4);
+			esfera.receiveShadow = true;
+			esfera.castShadow = true;
+			escena.add(esfera);
+
+			//CREACIÓN DE CONO QUE PROYECTA SOMBRA
+			var geometria = new THREE.ConeGeometry(1, 4, 4);
+			var material = new THREE.MeshPhongMaterial({color:'green'});
+			var cono = new THREE.Mesh(geometria, material);
+			cono.position.set(-5, 3, -2);
+			cono.receiveShadow = true;
+			cono.castShadow = true;
+			escena.add(cono);
+
+			//CREACIÓN DE LUZ AMBIENTAL QUE ILUMINA UNIFORMEMENTE LOS OBJETOS
+			var luz_amb = new THREE.AmbientLight('white', 0.3);
+			escena.add(luz_amb);
+
+			//CREACIÓN DE FUENTE DE LUZ
+			var luz = new THREE.PointLight('white', 0.8, 100, 2);
+			luz.position.set(3, 7, 3);
+			luz.castShadow = true;
+			escena.add(luz);
+
+			//ROTACIONES DEL CUBO Y CONO
+			function animate() {
+				requestAnimationFrame(animate);
+				cubo.rotation.x += 0.01;
+				cubo.rotation.y += 0.05;
+				cono.rotation.z += 0.03;
+				renderer.render(escena, camara);
+			}
+			animate();
+
+
+			var colores = ["0x191F37", "0x183E41", "0x819024", "0xDA8B2D", "0xE9AE3D"];
+
+			function cambiarColor(figura){
+				var aleatorio = Math.round(Math.random()*4);
+				if(figura == "cubo"){
+					cubo.material.color.setHex(colores[aleatorio]);
+				}
+				else if(figura == "piramide"){
+					cono.material.color.setHex(colores[aleatorio]);
+				}
+				else if(figura == "esfera"){
+					esfera.material.color.setHex(colores[aleatorio]);
+				}
+				
+				
+			}
+		</script>
+		
+	</body>
+</html>
