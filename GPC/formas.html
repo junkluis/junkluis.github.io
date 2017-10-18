@@ -96,10 +96,10 @@
 			animate();
 
 
-			var colores = ["0x191F37", "0x183E41", "0x819024", "0xDA8B2D", "0xE9AE3D"];
+			var colores = ["0x191F37", "0x183E41", "0x819024", "0xDA8B2D", "0xE9AE3D","0x40303A", "0x31414B", "0xFEFAF5", "0x0A2C55", "0x1C2133","0xA99D42", "0x662D48", "0x4C3437", "0x9EAF2B"];
 
 			function cambiarColor(figura){
-				var aleatorio = Math.round(Math.random()*4);
+				var aleatorio = Math.round(Math.random()*13);
 				if(figura == "cubo"){
 					cubo.material.color.setHex(colores[aleatorio]);
 				}
