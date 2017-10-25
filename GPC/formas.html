@@ -9,18 +9,79 @@
 				width: 100%; 
 				height: 100%;
 			}
+			#menu{
+				position: fixed; 
+				bottom: 0; 
+				right: 0; 
+				width: 350px; 
+				border: 2px solid #b3afaf; 
+				background-color: rgba(255,255,255,0.5); 
+				font-family: arial; 
+				margin:10px; 
+				padding: 10px;
+			}
+			#tabla-colores{
+				position: fixed;
+			    bottom: 40px;
+			    right: 70px;
+			    z-index: 1;
+			    display: none;
+			}
 		</style>
 	</head>
 	<body>
-		<div style="position: fixed; bottom: 0; right: 0; width: 350px; border: 3px solid blue; background-color: rgba(255,255,255,0.5); font-family: arial; margin:10px; padding: 10px">
+		<div id="tabla-colores">
+		    <table border="1">
+		          <tr>
+              <td bgcolor="#D98880" width="15" height="15" onclick="cambiarColor(this.id, 0)"></td>
+              <td bgcolor="#D7BDE2" width="15" height="15" onclick="cambiarColor(this.id, 1)"></td>
+              <td bgcolor="#28B463" width="15" height="15" onclick="cambiarColor(this.id, 2)"></td>
+              <td bgcolor="#F5B7B1" width="15" height="15" onclick="cambiarColor(this.id, 3)"></td>
+              <td bgcolor="#FCF3CF" width="15" height="15" onclick="cambiarColor(this.id, 4)"></td>
+          </tr>
+          <tr>
+              <td bgcolor="#E74C3C" width="15" height="15" onclick="cambiarColor(this.id, 5)"></td>
+              <td bgcolor="#8E44AD" width="15" height="15" onclick="cambiarColor(this.id, 6)"></td>
+              <td bgcolor="#F1C40F" width="15" height="15" onclick="cambiarColor(this.id, 7)"></td>
+              <td bgcolor="#A1887F" width="15" height="15" onclick="cambiarColor(this.id, 8)"></td>
+              <td bgcolor="#757575" width="15" height="15" onclick="cambiarColor(this.id, 9)"></td>
+          </tr>
+          <tr>
+              <td bgcolor="#212F3C" width="15" height="15" onclick="cambiarColor(this.id, 10)"></td>
+              <td bgcolor="#2471A3" width="15" height="15" onclick="cambiarColor(this.id, 11)"></td>
+              <td bgcolor="#F39C12" width="15" height="15" onclick="cambiarColor(this.id, 12)"></td>
+              <td bgcolor="#D84315" width="15" height="15" onclick="cambiarColor(this.id, 13)"></td>
+              <td bgcolor="#F57C00" width="15" height="15" onclick="cambiarColor(this.id, 14)"></td>
+          </tr>    
+          <tr>
+              <td bgcolor="#1B5E20" width="15" height="15" onclick="cambiarColor(this.id, 15)"></td>
+              <td bgcolor="#039BE5" width="15" height="15" onclick="cambiarColor(this.id, 16)"></td>
+              <td bgcolor="#AFB42B" width="15" height="15" onclick="cambiarColor(this.id, 17)"></td>
+              <td bgcolor="#FFAB91" width="15" height="15" onclick="cambiarColor(this.id, 18)"></td>
+              <td bgcolor="#FFEE58" width="15" height="15" onclick="cambiarColor(this.id, 19)"></td>
+          </tr>
+          <tr>
+              <td bgcolor="#BF360C" width="15" height="15" onclick="cambiarColor(this.id, 20)"></td>
+              <td bgcolor="#3E2723" width="15" height="15" onclick="cambiarColor(this.id, 21)"></td>
+              <td bgcolor="#212121" width="15" height="15" onclick="cambiarColor(this.id, 22)"></td>
+              <td bgcolor="#880E4F" width="15" height="15" onclick="cambiarColor(this.id, 23)"></td>
+              <td bgcolor="#004D40" width="15" height="15" onclick="cambiarColor(this.id, 24)"></td>
+          </tr>
+		  </table>
+		  <button id="salir">Salir</button>
+  </div>
+
+
+		<div id="menu">
 			<h3>Proyecto de Graficos por computadora</h3>
-			<h1>Menu</h1>
-			PIRAMIDE <button style="margin: 5px" onclick="cambiarColor('piramide')" type="button">color aleatorio</button><br/>
-			CUBO <button style="margin: 5px" onclick="cambiarColor('cubo')" type="button">color aleatorio</button><br/>
-			ESFERA <button style="margin: 5px" onclick="cambiarColor('esfera')" type="button">color aleatorio</button>
+			<h2>Menu</h2>
+			PIRAMIDE <button id="piramide" style="margin: 5px" type="button">cambiar color</button><br/>
+			CUBO <button id="cubo" style="margin: 5px"  type="button">cambiar color</button><br/>
+			ESFERA <button id="esfera" style="margin: 5px" type="button">cambiar color</button>
 		</div>
 		<script src="js/three.js"></script>
 		<script src="js/OrbitControls.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script>
 			//CREACIÓN DE LA ESCENA Y LA CÁMARA
 			var escena = new THREE.Scene();
@@ -41,7 +102,7 @@
 			control = new THREE.OrbitControls(camara, renderer.domElement);
 
 			//CREACIÓN Y POSICIONAMIENTO DEL PISO
-			var geometria = new THREE.PlaneGeometry(200, 200, 200, 200);
+			var geometria = new THREE.PlaneGeometry(500, 500, 500, 500);
 			var material = new THREE.MeshPhongMaterial({color:0xffffff});
 			var piso = new THREE.Mesh(geometria, material);
 			piso.receiveShadow = true;
@@ -52,22 +113,27 @@
 			var geometria = new THREE.BoxGeometry(1, 1, 1);
 			var material = new THREE.MeshPhongMaterial({color:'red'});
 			var cubo = new THREE.Mesh(geometria, material);
-			cubo.position.set(0, 1, 0);
+			cubo.position.set(0, 2, 0);
 			cubo.receiveShadow = true;
 			cubo.castShadow = true;
 			escena.add(cubo);
 
 			//CREACIÓN DE ESFERA QUE PROYECTA SOMBRA
-			var geometria = new THREE.SphereGeometry(1, 40, 40);
+			var geometria = new THREE.SphereGeometry(1, 60, 60);
 			var material = new THREE.MeshPhongMaterial({color:'blue'});
 			var esfera = new THREE.Mesh(geometria, material);
-			esfera.position.set(3, 3, -4);
+			//esfera.position.set(3, 3, -2);
 			esfera.receiveShadow = true;
 			esfera.castShadow = true;
 			escena.add(esfera);
 
+			//Añadimos la esfera al cubo que será el pivote
+			cubo.add(esfera);
+			esfera.position.set(3,0,0);
+
+
 			//CREACIÓN DE CONO QUE PROYECTA SOMBRA
-			var geometria = new THREE.ConeGeometry(1, 4, 4);
+			var geometria = new THREE.ConeGeometry(1, 2, 4);
 			var material = new THREE.MeshPhongMaterial({color:'green'});
 			var cono = new THREE.Mesh(geometria, material);
 			cono.position.set(-5, 3, -2);
@@ -88,7 +154,7 @@
 			//ROTACIONES DEL CUBO Y CONO
 			function animate() {
 				requestAnimationFrame(animate);
-				cubo.rotation.x += 0.01;
+				//cubo.rotation.x += 0.01;
 				cubo.rotation.y += 0.05;
 				cono.rotation.z += 0.03;
 				renderer.render(escena, camara);
@@ -96,21 +162,36 @@
 			animate();
 
 
-			var colores = ["0x191F37", "0x183E41", "0x819024", "0xDA8B2D", "0xE9AE3D","0x40303A", "0x31414B", "0xFEFAF5", "0x0A2C55", "0x1C2133","0xA99D42", "0x662D48", "0x4C3437", "0x9EAF2B"];
+			var colores = ["0xD98880", "0xD7BDE2", "0x28B463", "0xF5B7B1", "0xFCF3CF", "0xE74C3C", "0x8E44AD", "0xF1C40F", "0xA1887F", "0x757575", "0x212F3C", "0x2471A3", "0xF39C12", "0xD84315", "0xF57C00", "0x1B5E20", "0x039BE5", "0xAFB42B", "0xFFAB91", "0xFFEE58", "0xBF360C", "0x3E2723", "0x212121", "0x880E4F", "0x004D40"];
 
-			function cambiarColor(figura){
-				var aleatorio = Math.round(Math.random()*13);
+			$(document).ready(function(){
+		      $("#salir").click(function(){
+		          $("#tabla-colores").hide();
+		      });
+		      $("#cubo").click(function(){
+		      		$('td').attr("id","cubo")
+		          $("#tabla-colores").show();
+		      });
+		      $("#piramide").click(function(){
+		      		$('td').attr("id","piramide")
+		          $("#tabla-colores").show();
+		      });
+		      $("#esfera").click(function(){
+		      		$('td').attr("id","esfera")
+		          $("#tabla-colores").show();
+		      });
+			});
+
+			function cambiarColor(figura,i){
 				if(figura == "cubo"){
-					cubo.material.color.setHex(colores[aleatorio]);
+					cubo.material.color.setHex(colores[i]);
 				}
 				else if(figura == "piramide"){
-					cono.material.color.setHex(colores[aleatorio]);
+					cono.material.color.setHex(colores[i]);
 				}
 				else if(figura == "esfera"){
-					esfera.material.color.setHex(colores[aleatorio]);
-				}
-				
-				
+					esfera.material.color.setHex(colores[i]);
+				}		
 			}
 		</script>
 		
